@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morten Bertelsen — Communications Executive</title>
+<meta name="description" content="Morten Bertelsen. Communications executive based in Norway.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --air: #edf2f3;
+    --water: #dbe5e7;
+    --water-deep: #cfdcdf;
+    --ink: #102b32;
+    --fjord: #3d5f68;
+    --fjord-soft: #7b959c;
+    --salmon: #f2846b;
+    --hairline: rgba(16, 43, 50, 0.25);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    font-family: "Familjen Grotesk", system-ui, sans-serif;
+    background: var(--air);
+    color: var(--ink);
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mono {
+    font-family: "Spline Sans Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  /* ---------- Top bar ---------- */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 1.4rem clamp(1.25rem, 5vw, 4rem);
+    color: var(--fjord);
+  }
+
+  /* ---------- Air (above the waterline) ---------- */
+  .air {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: clamp(2rem, 6vh, 4rem) clamp(1.25rem, 5vw, 4rem) 0;
+  }
+
+  .eyebrow {
+    color: var(--fjord);
+    margin-bottom: 1.1rem;
+  }
+
+  .eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 2.2rem;
+    height: 1px;
+    background: var(--salmon);
+    vertical-align: middle;
+    margin-right: 0.75rem;
+  }
+
+  .intro {
+    max-width: 34em;
+    font-size: clamp(1rem, 1.4vw, 1.15rem);
+    line-height: 1.55;
+    color: var(--fjord);
+    margin-bottom: 1.6rem;
+  }
+
+  .intro a {
+    color: var(--ink);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid var(--salmon);
+    padding-bottom: 1px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .intro a:hover {
+    color: var(--salmon);
+  }
+
+  .intro a:focus-visible {
+    outline: 2px solid var(--salmon);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .name {
+    font-size: clamp(2.6rem, 11.5vw, 7.5rem);
+    font-weight: 650;
+    letter-spacing: -0.025em;
+    line-height: 0.98;
+    padding-bottom: clamp(0.6rem, 1.5vh, 1.2rem);
+  }
+
+  /* ---------- Waterline ---------- */
+  .waterline {
+    height: 1px;
+    background: var(--hairline);
+    width: 100%;
+  }
+
+  /* ---------- Water (below the waterline) ---------- */
+  .water {
+    background: linear-gradient(var(--water), var(--water-deep));
+    padding: 0 clamp(1.25rem, 5vw, 4rem);
+    overflow: hidden;
+  }
+
+  .reflection {
+    font-size: clamp(2.6rem, 11.5vw, 7.5rem);
+    font-weight: 650;
+    letter-spacing: -0.025em;
+    line-height: 0.98;
+    padding-top: clamp(0.6rem, 1.5vh, 1.2rem);
+    transform: scaleY(-1);
+    transform-origin: top;
+    color: var(--fjord);
+    opacity: 0.28;
+    filter: blur(1.5px);
+    user-select: none;
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0.9), transparent 85%);
+    mask-image: linear-gradient(to top, rgba(0,0,0,0.9), transparent 85%);
+    animation: sway 7s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+
+  @keyframes sway {
+    from { transform: scaleY(-1) skewX(0.4deg) translateX(0); }
+    to   { transform: scaleY(-1) skewX(-0.6deg) translateX(4px); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reflection { animation: none; }
+  }
+
+  footer {
+    background: var(--water-deep);
+    color: var(--fjord-soft);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 1.4rem clamp(1.25rem, 5vw, 4rem) 1.6rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="mono">mortenbertelsen.com</span>
+  <span class="mono">Norway</span>
+</header>
+
+<main class="air">
+  <p class="eyebrow mono">Communications executive</p>
+  <p class="intro">
+    I lead communications for a living. I keep this domain mainly for vanity
+    reasons, so there is not much to see here. The useful part is
+    <a href="https://www.linkedin.com/in/mortbert" rel="me">my LinkedIn profile&nbsp;&#8599;</a>.
+  </p>
+  <h1 class="name">Morten Bertelsen</h1>
+</main>
+
+<div class="waterline" role="presentation"></div>
+
+<div class="water">
+  <div class="reflection" aria-hidden="true">Morten Bertelsen</div>
+</div>
+
+<footer>
+  <span class="mono">&copy; 2026 Morten Bertelsen</span>
+  <span class="mono">Still waters</span>
+</footer>
+
+</body>
+</html>
