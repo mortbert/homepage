@@ -30,7 +30,7 @@
   "url": "https://mortenbertelsen.com/",
   "sameAs": ["https://www.linkedin.com/in/mortbert"]
 }
-</script>  
+</script>
 <style>
   :root {
     --air: #e4edef;
@@ -41,6 +41,8 @@
     --fjord-soft: #7b959c;
     --salmon: #f2846b;
     --hairline: rgba(16, 43, 50, 0.25);
+    --name-size: clamp(2.6rem, 11.5vw, 7.5rem);
+    --name-gap: clamp(0.6rem, 1.5vh, 1.2rem);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -125,11 +127,15 @@
   }
 
   .name {
-    font-size: clamp(2.6rem, 11.5vw, 7.5rem);
-    font-weight: 650;
-    letter-spacing: -0.025em;
-    line-height: 0.98;
-    padding-bottom: clamp(0.6rem, 1.5vh, 1.2rem);
+    font-size: var(--name-size);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    /* 0.98 pushed ascenders above the line box, so the tops of
+       "t", "l" and "M" were shaved off at large sizes. */
+    line-height: 1.1;
+    padding-top: 0.05em;
+    padding-bottom: var(--name-gap);
+    overflow: visible;
   }
 
   /* ---------- Waterline ---------- */
@@ -137,17 +143,6 @@
     height: 1px;
     background: var(--hairline);
     width: 100%;
-  }
-
-  /* ---------- Water (below the waterline) ---------- */
- 
-  @keyframes sway {
-    from { transform: scaleY(-1) skewX(0.4deg); }
-    to   { transform: scaleY(-1) skewX(-0.6deg) translateX(4px); }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .reflection { animation: none; }
   }
 
   footer {
@@ -180,12 +175,6 @@
 </main>
 
 <div class="waterline" role="presentation"></div>
-
-<div class="water">
-  <div class="reflection-mask">
-    <div class="reflection" aria-hidden="true"></div>
-  </div>
-</div>
 
 <footer>
   <span class="mono">&copy; 2026 Morten Bertelsen</span>
